@@ -109,7 +109,7 @@ stages:
                     deployToSlotOrASE: true
                     ResourceGroupName: $(resourceGroup)
                     SlotName: "test"
-                    packageForLinux: "$(Agent.BuildDirectory)/app/web.zip"
+                    packageForLinux: "$(Agent.BuildDirectory)/app/DevOpsChallengers.Web.zip"
 
   - stage: deployToProd
     condition: and(succeeded(), eq(variables.isMain, 'true'))
@@ -132,7 +132,7 @@ stages:
                     deployToSlotOrASE: true
                     ResourceGroupName: $(resourceGroup)
                     SlotName: "stage"
-                    packageForLinux: "$(Agent.BuildDirectory)/app/web.zip"
+                    packageForLinux: "$(Agent.BuildDirectory)/app/DevOpsChallengers.Web.zip"
                 - task: AzureAppServiceManage@0
                   inputs:
                     azureSubscription: 'AzureDevOpsChallengers-sc'
